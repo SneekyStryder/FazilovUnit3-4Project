@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class Tester {
+public class Tester {
+    public static void main(String[] args) {
+        ComputerDeck test = new ComputerDeck();
+        test.AssignCards();
+        System.out.println(test.getDeck());
+    }
 }
