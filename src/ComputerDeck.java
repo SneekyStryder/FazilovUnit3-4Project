@@ -24,12 +24,9 @@ public class ComputerDeck {
         return newarray;
     }
 
-    public static int[] removeTheElement(int[] arr, int index)
+    public static int[] removeElement(int[] arr, int index)
     {
 
-        // If the array is empty
-        // or the index is not in array range
-        // return the original array
         if (arr == null || index < 0
                 || index >= arr.length) {
 
@@ -66,6 +63,9 @@ public class ComputerDeck {
         }
     }
 
+    public void setDeckCardVals(int[] array) {
+        deckCardVals = array;
+    }
     public String getNumDeck() {
         return Arrays.toString(deckCardVals);
     }
@@ -78,7 +78,13 @@ public class ComputerDeck {
         return Arrays.toString(deckCardLetters);
     }
 
-    public void removeCard() {
-
+    public void removeCard(int cardValue) {
+        int element = -1;
+        for (int i = 0; i < deckCardVals.length; i++) {
+            if (deckCardVals[i] == cardValue) {
+                element = deckCardVals[i];
+            }
+        }
+        deckCardVals = removeElement(deckCardVals, element);
     }
 }
