@@ -5,6 +5,8 @@ public class ComputerDeck {
     private int[] deckCardVals = {};
     private String[] deckCardLetters = {};
 
+    CardAssignments compAssign = new CardAssignments();
+
     public ComputerDeck() {
         deckSize = 13;
     }
@@ -71,7 +73,6 @@ public class ComputerDeck {
     }
 
     public void setLetterDeck() {
-        CardAssignments compAssign = new CardAssignments();
         deckCardLetters = compAssign.DeckLetters(deckCardVals);
     }
     public String getLetterDeck() {
@@ -82,9 +83,14 @@ public class ComputerDeck {
         int element = -1;
         for (int i = 0; i < deckCardVals.length; i++) {
             if (deckCardVals[i] == cardValue) {
-                element = deckCardVals[i];
+                element = i;
             }
         }
         deckCardVals = removeElement(deckCardVals, element);
+    }
+
+    public void addCard(int cardValue) {
+        deckCardVals = addElementInt(deckCardVals.length, deckCardVals, cardValue);
+        setLetterDeck();
     }
 }
