@@ -3,6 +3,7 @@ public class Tester {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         boolean cont = true;
+        GameLogic logic = new GameLogic();
         while (cont) {
             ComputerDeck test = new ComputerDeck();
             test.AssignCards();
@@ -12,6 +13,7 @@ public class Tester {
             int cardVal = scan.nextInt();
             test.removeCard(cardVal);
             System.out.println(test.getNumDeck());
+            System.out.println(logic.StartingCard());
         }
     }
 }

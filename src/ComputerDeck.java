@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class ComputerDeck {
-    private int deckSize;
-    private int[] deckCardVals = {};
-    private String[] deckCardLetters = {};
+    public int deckSize;
+    public int[] deckCardVals = {};
+    public String[] deckCardLetters = {};
 
     CardAssignments compAssign = new CardAssignments();
 
