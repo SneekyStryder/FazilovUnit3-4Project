@@ -52,4 +52,8 @@ public class CardNames {
             "Jack of Spades",
             "Queen of Spades",
             "King of Spades",};
+
+    public String cardValToName(int cardVal) {
+        return CardNames[cardVal];
+    }
 }

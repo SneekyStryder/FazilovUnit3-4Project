@@ -6,6 +6,7 @@ public class ComputerDeck {
     public String[] deckCardLetters = {};
 
     CardAssignments compAssign = new CardAssignments();
+    CardNames names = new CardNames();
 
     public ComputerDeck() {
         deckSize = 13;
@@ -93,4 +94,9 @@ public class ComputerDeck {
         deckCardVals = addElementInt(deckCardVals.length, deckCardVals, cardValue);
         setLetterDeck();
     }
+
+    public String cardValToName(int cardVal) {
+        return names.CardNames[cardVal];
+    }
+
 }
