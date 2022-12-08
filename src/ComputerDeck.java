@@ -92,7 +92,6 @@ public class ComputerDeck {
 
     public void addCard(int cardValue) {
         deckCardVals = addElementInt(deckCardVals.length, deckCardVals, cardValue);
-        setLetterDeck();
     }
 
     public String cardValToName(int cardVal) {

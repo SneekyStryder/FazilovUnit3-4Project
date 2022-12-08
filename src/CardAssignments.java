@@ -24,7 +24,7 @@ public class CardAssignments {
 
     public String[] DeckLetters(int[] deckArray) {
         String[] deckArrayLetters = {};
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 14; i++) {
             int element = deckArray[i];
             deckArrayLetters = addElementString(deckArrayLetters.length, deckArrayLetters, CardDNs[element]);
         }

@@ -2,8 +2,10 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        boolean cont = true;
+        boolean cont = false;
         GameLogic logic = new GameLogic();
+        int tmp = (int) ( Math.random() * 2 + 1);
+        System.out.println(tmp);
         while (cont) {
             ComputerDeck test = new ComputerDeck();
             test.AssignCards();

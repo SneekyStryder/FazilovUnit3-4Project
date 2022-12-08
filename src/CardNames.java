@@ -56,4 +56,14 @@ public class CardNames {
     public String cardValToName(int cardVal) {
         return CardNames[cardVal];
     }
+
+    public int cardNameToVal(String cardName) {
+        for (int i = 1; i <= 52; i++) {
+            String name = CardNames[i];
+            if (name.equals(cardName)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
