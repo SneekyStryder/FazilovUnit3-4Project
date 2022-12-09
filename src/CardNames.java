@@ -1,4 +1,10 @@
+/**
+ * The CardNames class stores the text names for each card that are used when printing to the user.
+ */
 public class CardNames {
+    /**
+     * Instance variable array that stores every text name for the respective card value integers.
+     */
     public String[] CardNames = {"nothing",
             "Ace of Diamonds",
             "2 of Diamonds",
@@ -53,10 +59,20 @@ public class CardNames {
             "Queen of Spades",
             "King of Spades",};
 
+    /**
+     * Converts a specified card value into its text counterpart
+     * @param cardVal represents the value of the card
+     * @return returns the text version of the card
+     */
     public String cardValToName(int cardVal) {
         return CardNames[cardVal];
     }
 
+    /**
+     * Converts a specified card name into its integer counterpart
+     * @param cardName represents the value of the card
+     * @return rteurns the integer version of the card
+     */
     public int cardNameToVal(String cardName) {
         for (int i = 1; i <= 52; i++) {
             String name = CardNames[i];

@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * The class GameLogic contains all the main game logic for the game
+ */
 public class GameLogic {
     Scanner scan = new Scanner(System.in);
     ComputerDeck comp1 = new ComputerDeck();
