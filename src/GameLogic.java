@@ -25,6 +25,9 @@ public class GameLogic {
     private boolean cont = true;
     private int win;
 
+    /**
+     * Creates the randomized decks for each player
+     */
     public void assignCards() {
         comp1.AssignCards();
         comp2.AssignCards();
@@ -32,10 +35,20 @@ public class GameLogic {
         user.AssignCards();
     }
 
+    /**
+     * Sets the card pile to 0
+     */
     public void resetDeck() {
         deck = emptyDeck;
     }
 
+    /**
+     * Adds a card to a deck based on the card value
+     * @param length represents length of the deck
+     * @param array represents the deck
+     * @param element represents the card value that is to be added
+     * @return returns the updated deck with the specified card
+     */
     public static int[] addElementInt(int length, int array[], int element)
     {
         int i;
@@ -51,6 +64,10 @@ public class GameLogic {
         return newarray;
     }
 
+    /**
+     * Sets the starting player of the game
+     * @return returns the starting player's name
+     */
     public String StartingPlayer() {
         int randomNum = (int) ((Math.random() * 3) + 1);
         startingPlayer = randomNum;
@@ -77,6 +94,10 @@ public class GameLogic {
         return "nothing";
     }
 
+    /**
+     * Sets the starting card of the game
+     * @return returns the name of the starting card
+     */
     public String StartingCard() {
         int randomNum = (int) ((Math.random() * 51) + 1);
         startingCardVal = randomNum;
@@ -88,6 +109,9 @@ public class GameLogic {
         return startingCardName;
     }
 
+    /**
+     * Sets the next card based on the current card on the pile
+     */
     public void setNextCard() {
         if (currentCard == 13) {
             nextCard = 1;
@@ -106,10 +130,16 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Sets the current card based on the next card
+     */
     public void setCurrentCard() {
         currentCard = nextCard;
     }
 
+    /**
+     * Sets the next player based on the current player
+     */
     public void setNextPlayer() {
         if (currentPlayer == 4) {
             nextPlayer = 1;
@@ -119,10 +149,17 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Sets the current player based on the next player
+     */
     public void setCurrentPlayer() {
         currentPlayer = nextPlayer;
     }
 
+    /**
+     * Returns the current player's name
+     * @return returns the current player's name
+     */
     public String getCurrentPlayer() {
         if (currentPlayer == 1) {
             return "Computer 1";
@@ -139,6 +176,11 @@ public class GameLogic {
         return "nothing";
     }
 
+    /**
+     * The PlaceCard method places a specified card based on what the card is and the player placing it
+     * @param element represents the card name
+     * @param player represents the player number
+     */
     public void PlaceCard(String element, int player) {
         int cardVal = -1;
         for (int i = 1; i <= 52; i++) {
@@ -250,7 +292,10 @@ public class GameLogic {
 
     }
 
-
+    /**
+     * The PromptUser method shows the user their deck and asks the user to place a card
+     * @return returns the name of the card to be placed
+     */
     public String PromptUser() {
         System.out.print("Your deck: ");
         for (int i = 0; i < user.deckCardVals.length; i++) {
@@ -263,6 +308,10 @@ public class GameLogic {
         return userCardSelect;
     }
 
+    /**
+     * The userCallBS method asks the user to call BS or not and returns either true or false depending on their answer
+     * @return returns true if user calls BS and false if user does not
+     */
     public boolean userCallBS() {
         System.out.println("Call BS? (BS for yes, n for no): ");
         String userCall = scan.nextLine();
@@ -275,6 +324,10 @@ public class GameLogic {
         return false;
     }
 
+    /**
+     * Computer logic for calling BS (50/50 chance of calling BS)
+     * @return returns true if computer calls BS and false if it does not
+     */
     public boolean compCallBS() {
         int randomNum = (int) ( Math.random() * 2 + 1);
         if (randomNum == 1) {
@@ -286,6 +339,10 @@ public class GameLogic {
         return false;
     }
 
+    /**
+     * Tests if player who calls BS is right by checking the needed card and the placed card
+     * @return returns true if the cards are not the same and false if they are
+     */
     public boolean testBS() {
         if (placeCardVal == nextCard) {
             return false;
@@ -296,10 +353,16 @@ public class GameLogic {
         return false;
     }
 
+    /**
+     * Runs the PlaceCard method for the computer
+     */
     public void runComputerMove() {
         PlaceCard("whatever", currentPlayer);
     }
 
+    /**
+     * Makes the current player pick up the deck
+     */
     public void playerPickUp() {
         if (currentPlayer == 1) {
             for (int i = 1; i <= deckSize; i++) {
@@ -332,6 +395,9 @@ public class GameLogic {
 
     }
 
+    /**
+     * Makes the player who called BS pick up the deck
+     */
     public void callerPickUp() {
         if (nextPlayer == 1) {
             for (int i = 1; i <= deckSize; i++) {
@@ -363,6 +429,9 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Skips the turn for the next player
+     */
     public void skipTurn() {
         setCurrentPlayer();
         setNextPlayer();
@@ -370,6 +439,9 @@ public class GameLogic {
         setNextPlayer();
     }
 
+    /**
+     * Main logic that runs the entire game until a player wins, using all logic methods
+     */
     public void RunGame() {
         assignCards();
         System.out.println("The Starting Card Is: " + StartingCard());
